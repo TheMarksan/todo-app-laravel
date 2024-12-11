@@ -1,6 +1,6 @@
 <div>
     <!-- The biggest battle is the war against ignorance. - Mustafa Kemal Atatürk -->
-    <form action="" method="post">
+    <form action="{{ route('signUp_post') }}" method="post">
         @csrf
         <input type="text" name="name" placeholder="Name">
         <input type="email" name="email" placeholder="Email">

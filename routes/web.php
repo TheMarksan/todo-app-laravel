@@ -1,13 +1,17 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\signUp_controller;
+use App\Http\Controllers\users_controller;
 
 Route::get('/', function () {
     
     return view('welcome');
 });
 
-Route::get('/signUp', [signUp_controller::class, 'index']);
 
-Route::post('/signUp', [signUp_controller::class, 'store']);
+Route::controller(users_controller::class)->group(function(){
+    Route::get('/signUp', 'index')->name('signUp_page');
+    Route::post('/signUp', 'store')->name('signUp_post');
+    Route::get('/signIn', 'signIn_page')->name('signIn_page');
+    Route::post('/signIn', 'post_signIn')->name('signIn_post');
+});
