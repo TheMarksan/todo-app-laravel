@@ -2,16 +2,23 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\users_controller;
+use App\Http\Middleware\EnsureTokenIsValid;
+
 
 Route::get('/', function () {
-    
+
     return view('welcome');
 });
 
 
+Route::get('/user-page', function () {
+    return view('user-page');
+})->middleware('auth', EnsureTokenIsValid::class);
+
 Route::controller(users_controller::class)->group(function(){
     Route::get('/signUp', 'index')->name('signUp_page');
     Route::post('/signUp', 'store')->name('signUp_post');
-    Route::get('/signIn', 'signIn_page')->name('signIn_page');
-    Route::post('/signIn', 'post_signIn')->name('signIn_post');
+    Route::get('/login', 'signIn_page')->name('login');
+    Route::post('/login', 'post_signIn')->name('signIn_post');
+    Route::delete('/logout', 'logout')->name('logout');
 });
