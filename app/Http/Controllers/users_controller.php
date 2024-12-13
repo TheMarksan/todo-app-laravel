@@ -49,7 +49,7 @@ class users_controller extends Controller
 
         if(Auth::attempt($data)){
             $request->session()->regenerate();
-            return view('user-page');
+            return redirect()->route('user-page');
         }else{
             return view('signIn_view')->with('message', 'Invalid email or password');
         }
