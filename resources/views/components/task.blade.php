@@ -31,8 +31,8 @@ hover:bg-indigo-100">
       </div>
     </div>
     <div class="flex flex-line abosulte">
-        <form action="">
-            <input type="checkbox" class="opacity-0 h-6 w-6 text-blue-500 border-gray-300 rounded-lg transition duration-300 group-hover:opacity-100 group-hover:block focus:outline-none focus:ring-2 focus:ring-blue-500" />
+        <form action="{{ route('task_isDone', $id) }}" class="flex items-center justify-center pr-4">
+            <input type="checkbox" class="opacity-0 size-6 text-blue-500 border-gray-300 rounded-lg transition duration-300 group-hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-blue-500" />
         </form>
 
         <form action={{ route('delete_task', $id) }} method="post" class="hidden shrink-0 sm:flex sm:flex-line sm:items-end">

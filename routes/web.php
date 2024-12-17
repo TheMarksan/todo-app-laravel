@@ -16,6 +16,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/user-page', [tasks_controller::class, 'index'])->name('user-page');
     Route::post('/create_tasks', [tasks_controller::class, 'store'])->name('create_tasks');
     Route::delete('/delete_task/{id}', [tasks_controller::class, 'destroy'])->name('delete_task');
+    Route::patch('/task_isDone/{id}', [tasks_controller::class, 'update'])->name('task_isDone');
 });
 
 Route::controller(users_controller::class)->group(function(){

@@ -45,4 +45,11 @@ class tasks_controller extends Controller
         $task->delete();
         return redirect()->route('user-page')->with('message', 'task deleted');
     }
+
+    public function update($id){
+        $task = Task::find($id);
+        $task->isDone = !$task->isDone;
+        $task->save();
+        return redirect()->route('user-page')->with('message', 'task is done');
+    }
 }
