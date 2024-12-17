@@ -26,11 +26,33 @@
       </nav>
     </header>
 
-    <main class="mt-6 space-y-6 sm:mt-8 sm:space-y-8 flex flex-col gap-y-6 sm:gap-y-0 sm:flex-row sm:gap-x-6 sm:gap-y-6 sm:space-y-0 sm:divide-x sm:divide-gray-100 sm:divide-y-0 sm:divide-x-0 items-center justify-center">
+    <main class="h-full mt-6 space-y-6 flex flex-col gap-y-6 sm:gap-y-0  sm:gap-x-6 sm:space-y-0 sm:divide-x sm:divide-gray-100 sm:divide-y-0 sm:divide-x-0 items-center justify-center">
 
-       @dump($tasks)
-      <ul role="list" class="divide-y divide-gray-100 p-5">
-        <x-task title="Tarefa X" description="Descrição tal" deadline="14 de Dezembro" posted="13 de Dezembro" />
+        {{ $errors->any() ? $errors : '' }}
+
+        <form action="{{ route('create_tasks') }}" method="POST" class="flex flex-line gap-y-2 w-1/2 pb-5">
+            @csrf
+            @method('POST')
+            <input name="title" type="text" class="w-full p-2 border-solid border-2 border-indigo-600 rounded-md" placeholder="Nova tarefa" wire:model="task">
+            <button type="submit" class="flex items-center justify-center ml-2 w-1/6 p-2 bg-indigo-600 text-white rounded-md hover:bg-indigo-500" wire:click="addTask">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+                  </svg>
+
+            </button>
+        </form>
+
+       {{-- @dump($tasks) --}}
+      <ul class=" w-1/2"  role="list" class="divide-y divide-gray-100 p-5">
+        @foreach ( $tasks as $task )
+          <x-task
+            id="{{ $task->id }}"
+            title="{{ $task->title }}"
+            isDone="{{ $task->isDone }}"
+        />
+
+        @endforeach
+
       </ul>
 
     </main>
