@@ -30,7 +30,7 @@
 
         {{ $errors->any() ? $errors : '' }}
 
-        <form action="{{ route('create_tasks') }}" method="POST" class="flex flex-line gap-y-2 w-1/2 pb-5">
+        <form action="{{ route('create_tasks') }}" method="POST" class="flex flex-line gap-y-2 w-4/5 pb-5">
             @csrf
             @method('POST')
             <input name="title" type="text" class="w-full p-2 border-solid border-2 border-indigo-600 rounded-md" placeholder="Nova tarefa" wire:model="task">
@@ -43,7 +43,7 @@
         </form>
 
        {{-- @dump($tasks) --}}
-      <ul class=" w-3/4"  role="list" class="divide-y divide-gray-100 p-5">
+      <ul class=" w-4/5"  role="list" class="divide-y divide-gray-100 p-5">
         @foreach ( $tasks as $task )
           <x-task
             id="{{ $task->id }}"
