@@ -30,8 +30,8 @@ hover:bg-indigo-100">
         {{-- <p class="mt-1 truncate text-xs/5 text-gray-500">Descrição tal</p> --}}
       </div>
     </div>
-    <div class="flex flex-line abosulte">
-        <form action="{{ route('task_isDone', $id) }}" method="post" class="flex items-center justify-center pr-4">
+    <div class="flex flex-line abosulte pr-4">
+        <form action="{{ route('task_isDone', $id) }}" method="post" class="flex items-center justify-center pr-2">
             @csrf
             @method('PATCH')
             @if (!$isDone)
