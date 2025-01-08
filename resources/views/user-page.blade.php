@@ -12,7 +12,7 @@
 </head>
 <body>
     <header class="flex items-center justify-center sm:sticky top-0 z-50 bg-white shadow-sm">
-      <nav class="w-1/2 flex justify-between items-center p-5 m-1">
+      <nav class="w-4/5 flex justify-between items-center p-5 m-1">
         <h1 class="text-3xl font-bold italic text-indigo-600">
             Todo-Dois
         </h1>
