@@ -31,7 +31,7 @@ hover:bg-indigo-100">
       </div>
     </div>
     <div class="w-1/5 flex flex-line justify-between pr-0">
-        <form action="{{ route('task_isDone', $id) }}" method="post" class="flex items-center justify-center pr-2">
+        <form action="{{ route('task_isDone', $id) }}" method="post" class="flex items-center justify-center">
             @csrf
             @method('PATCH')
             @if (!$isDone)
