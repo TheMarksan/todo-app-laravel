@@ -52,7 +52,7 @@ hover:bg-indigo-100">
 
         </form>
 
-        <form action={{ route('delete_task', $id) }} method="post" class="hidden shrink-0 sm:flex sm:flex-line sm:items-end">
+        <form action={{ route('delete_task', $id) }} method="post" class="">
             @csrf
             @method('DELETE')
 
