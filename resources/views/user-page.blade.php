@@ -43,7 +43,7 @@
         </form>
 
        {{-- @dump($tasks) --}}
-      <ul class=" w-1/2"  role="list" class="divide-y divide-gray-100 p-5">
+      <ul class=" w-3/4"  role="list" class="divide-y divide-gray-100 p-5">
         @foreach ( $tasks as $task )
           <x-task
             id="{{ $task->id }}"
